@@ -1,0 +1,19 @@
+
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    background-color: darkslategray;
+    text-align: center;
+  }
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+h1 {
+    color: White;
+}

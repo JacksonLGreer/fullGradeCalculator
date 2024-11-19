@@ -2,6 +2,7 @@ import './ItemBox.css';
 import Item from '../Item/Item';
 import { useState } from 'react'
 import FalseItem from '../Item/FalseItem'
+import TemplateItem from '../Item/TemplateItem'
 function ItemBox() {
     
     const [cats, setCats] = useState([
@@ -31,6 +32,10 @@ function ItemBox() {
         }
     ]);
 
+    const addCat = (newCat) => {
+        setCats((prevCats) => [...prevCats, newCat]);
+    };
+
    
     return (
         <div className="item-box-container">
@@ -43,6 +48,7 @@ function ItemBox() {
                 cat={cat}
                 />
             ))}
+            <TemplateItem onAddCat={addCat}/>
         </div>
     )
 }

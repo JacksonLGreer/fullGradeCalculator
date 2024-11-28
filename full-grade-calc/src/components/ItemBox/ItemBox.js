@@ -6,8 +6,10 @@ import TemplateItem from '../Item/TemplateItem'
 import DisplayField from '../Item/DisplayField'
 
 function ItemBox() {
+    // Empty array of categories
     const [cats, setCats] = useState([]);
 
+    // function to add category
     const addCat = (newCat) => {
         setCats((prevCats) => [...prevCats, newCat]);
         console.log(calculateGrade())
@@ -15,10 +17,11 @@ function ItemBox() {
 
     const calculateGrade = () => {
         let totalGrade = 0;
+        // forEach() is good for calculating from the array
         cats.forEach((cat) => {
             totalGrade += ((cat.weight/100) * cat.grade);       
         })
-        return totalGrade;
+        return totalGrade; //I forgot to return at first so dont forget
     }
     
     return (

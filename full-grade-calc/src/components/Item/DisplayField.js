@@ -2,10 +2,6 @@ import './Item.css';
 
 function FalseItem({calculateGrade, cats}) {
 
-    let totalGrade = 0;
-
-    
-
     return (
         <div>
             <div className="item-container">

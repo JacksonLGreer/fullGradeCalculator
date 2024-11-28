@@ -3,40 +3,24 @@ import Item from '../Item/Item';
 import { useState } from 'react'
 import FalseItem from '../Item/FalseItem'
 import TemplateItem from '../Item/TemplateItem'
+import DisplayField from '../Item/DisplayField'
+
 function ItemBox() {
-    
-    const [cats, setCats] = useState([
-        {
-            id: 1,
-            name: 'Tests',
-            weight: 35,
-            grade: 80,
-        },
-        {
-            id: 2,
-            name: 'Projects',
-            weight: 25,
-            grade: 80,
-        },
-        {
-            id: 3,
-            name: 'Quizzes',
-            weight: 20,
-            grade: 80,
-        },
-        {
-            id: 4,
-            name: 'Homework',
-            weight: 20,
-            grade: 80,
-        }
-    ]);
+    const [cats, setCats] = useState([]);
 
     const addCat = (newCat) => {
         setCats((prevCats) => [...prevCats, newCat]);
+        console.log(calculateGrade())
     };
 
-   
+    const calculateGrade = () => {
+        let totalGrade = 0;
+        cats.forEach((cat) => {
+            totalGrade += ((cat.weight/100) * cat.grade);       
+        })
+        return totalGrade;
+    }
+    
     return (
         <div className="item-box-container">
             <FalseItem />
@@ -49,6 +33,8 @@ function ItemBox() {
                 />
             ))}
             <TemplateItem onAddCat={addCat}/>
+            <DisplayField calculateGrade={calculateGrade} cats={cats}/>
+        
         </div>
     )
 }
